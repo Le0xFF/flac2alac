@@ -108,7 +108,7 @@ function _convert_flac2alac {
 
 	fi
 
-    ffmpeg -i "${D}/.flacdecode.${NF}.wav" \
+    ffmpeg -hide_banner -i "${D}/.flacdecode.${NF}.wav" \
     ${ARTFILE:+-i "${D}/${ARTFILE}"} \
     -map 0:a ${ARTFILE:+-map 1:v} \
     -metadata title="$TITLE" \
