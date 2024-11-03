@@ -5,18 +5,25 @@
 # Modified by Jeffrey Paul <sneak@datavibe.net>
 # Inspired by MetalMusicAddict's script
 
-# This script converts FLAC files to ALAC format, preserving metadata and album art.
+# This script converts FLAC files to ALAC format, preserving metadata, lyrics and album art.
 # Requires ImageMagick, mpeg4ip (for mp4tags), recent flac, and ffmpeg with ALAC and FLAC support.
 function usage() {
-	echo ""
-    echo "Usage: $0 [-d] file1.flac "
-	echo ""
-    echo "-d        Delete the original FLAC files after successful conversion."
-	echo ""
-    echo "file.flac Path to the FLAC file or files to be converted. Supports wildcard *.flac for batch conversion."
-	echo ""
-	echo "This tool also embeds album artwork if you have any on your directory and your files don't have any album artwork."
-	echo ""
+    echo ""
+    echo "Bash script to convert FLAC files to ALAC."
+    echo "The script will also take care of keeping metadata, lyrics and album art included."
+    echo "It will also embeds album artwork if available inside the directory and files don't have any."
+    echo "Album artwork will be converted to non-progressive 500x500 pixel JPEG to be RockBox compatible."
+    echo ""
+    echo "Be sure to install imagemagick, flac, ffmpeg and file, as they are needed for the script."
+    echo ""
+    echo "Usage: ${0} [-r] <INPUT_FLAC>"
+    echo ""
+    echo -e "\t-r\t\tRemove the original FLAC file after successful conversion."
+    echo ""
+    echo -e "\tINPUT_FLAC\tPath to the FLAC file or files to be converted."
+    echo -e "\t\t\tSupports wildcard *.flac for batch conversion."
+    echo -e "\t\t\tSupports directory and recursive search for FLAC files inside the given directory."
+    echo ""
 }
 
 # Check for no arguments
