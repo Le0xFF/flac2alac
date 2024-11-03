@@ -66,8 +66,8 @@ function _convert_flac2alac {
 	echo "ARTFORMAT: $ARTFORMAT"
 	echo "Arttext : $ARTEXT"
 
-	# BU KISIM TEKRARDAN YAZILCAK
-	# ARTFORMAT CHECK ET, LOWERCASE YAP, ARTFILE I ONA SET ET
+	# THIS PART WILL BE REWRITTEN
+    # CHECK ARTFORMAT, MAKE LOWERCASE, SET ARTFILE TO IT
 
 	# Proceed with the rest of the script based on ARTFORMAT's value
 	if [ "$ARTFORMAT" != "application/x-empty" ]; then
