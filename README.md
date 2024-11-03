@@ -2,6 +2,9 @@
 
 **flac2alac** is a shell script to convert FLAC (Free Lossless Audio Codec) files to ALAC (Apple Lossless Audio Codec) format, used on iPod/iPhone/iPad.
 
+The script will keep metadata, lyrics and album artwork in the converted files.  
+Album artwork will be converted to non-progressive, 500x500 JPEG to be RockBox compatible.
+
 Dependencies:
 - `ffmpeg`
 - `file`
