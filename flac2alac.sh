@@ -16,9 +16,9 @@ function usage() {
     echo ""
     echo "Be sure to install imagemagick, flac, ffmpeg and file, as they are needed for the script."
     echo ""
-    echo "Usage: ${0} [-d] <INPUT_FLAC>"
+    echo "Usage: ${0} [-r] <INPUT_FLAC>"
     echo ""
-    echo -e "\t-d\t\tRemove the original FLAC file after successful conversion."
+    echo -e "\t-r\t\tRemove the original FLAC file after successful conversion."
     echo ""
     echo -e "\tINPUT_FLAC\tPath to the FLAC file or files to be converted."
     echo -e "\t\t\tSupports wildcard *.flac for batch conversion."
@@ -166,7 +166,7 @@ DELETE_WHEN_DONE=0
 
 for filename in "${@}"
 do
-    if [ "${filename}" = "-d" ]
+    if [ "${filename}" = "-r" ]
     then
         DELETE_WHEN_DONE=1
     elif [ -d "${filename}" ]
