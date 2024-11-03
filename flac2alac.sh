@@ -54,19 +54,19 @@ function _convert_flac2alac {
     fi
 
     # Extract metadata using metaflac and sed to remove the tag prefix
-    local ARTIST="$(metaflac --show-tag=ARTIST "${1}"           | sed s/ARTIST=//ig)"
+    local ARTIST="$(metaflac --show-tag=ARTIST "${1}" | sed s/ARTIST=//ig)"
     local ALBUMARTIST="$(metaflac --show-tag=ALBUMARTIST "${1}" | sed s/ALBUMARTIST=//ig)"
-    local TITLE="$(metaflac --show-tag=TITLE "${1}"             | sed s/TITLE=//ig)"
-    local ALBUM="$(metaflac --show-tag=ALBUM "${1}"             | sed s/ALBUM=//ig)"
-    local DATE="$(metaflac --show-tag=DATE "${1}"               | sed s/DATE=//ig)"
-    local GENRE="$(metaflac --show-tag=GENRE "${1}"             | sed s/GENRE=//ig)"
+    local TITLE="$(metaflac --show-tag=TITLE "${1}" | sed s/TITLE=//ig)"
+    local ALBUM="$(metaflac --show-tag=ALBUM "${1}" | sed s/ALBUM=//ig)"
+    local DATE="$(metaflac --show-tag=DATE "${1}" | sed s/DATE=//ig)"
+    local GENRE="$(metaflac --show-tag=GENRE "${1}" | sed s/GENRE=//ig)"
     local TRACKNUMBER="$(metaflac --show-tag=TRACKNUMBER "${1}" | sed s/TRACKNUMBER=//ig)"
-    local TRACKTOTAL="$(metaflac --show-tag=TRACKTOTAL "${1}"   | sed s/TRACKTOTAL=//ig)"
-    local DISCNUMBER="$(metaflac --show-tag=DISCNUMBER "${1}"   | sed s/DISCNUMBER=//ig)"
-    local DISCTOTAL="$(metaflac --show-tag=DISCTOTAL "${1}"     | sed s/DISCTOTAL=//ig)"
+    local TRACKTOTAL="$(metaflac --show-tag=TRACKTOTAL "${1}" | sed s/TRACKTOTAL=//ig)"
+    local DISCNUMBER="$(metaflac --show-tag=DISCNUMBER "${1}" | sed s/DISCNUMBER=//ig)"
+    local DISCTOTAL="$(metaflac --show-tag=DISCTOTAL "${1}" | sed s/DISCTOTAL=//ig)"
     local DESCRIPTION="$(metaflac --show-tag=DESCRIPTION "${1}" | sed s/DESCRIPTION=//ig)"
-    local COMPOSER="$(metaflac --show-tag=COMPOSER "${1}"       | sed s/COMPOSER=//ig)"
-    local LYRICS="$(metaflac --show-tag=LYRICS "${1}"           | sed s/LYRICS=//ig)"
+    local COMPOSER="$(metaflac --show-tag=COMPOSER "${1}" | sed s/COMPOSER=//ig)"
+    local LYRICS="$(metaflac --show-tag=LYRICS "${1}" | sed s/LYRICS=//ig)"
 
     # Determine the MIME type of the embedded picture
     local ARTFILE=".arttmp.${NF}"
