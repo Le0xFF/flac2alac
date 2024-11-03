@@ -56,6 +56,7 @@ function _convert_flac2alac {
     local DISCTOTAL="`metaflac --show-tag=DISCTOTAL \"$1\" | sed s/DISCTOTAL=//ig`"
     local DESCRIPTION="`metaflac --show-tag=DESCRIPTION \"$1\" | sed s/DESCRIPTION=//ig`"
     local COMPOSER="`metaflac --show-tag=COMPOSER \"$1\" | sed s/COMPOSER=//ig`"
+    local LYRICS="$(metaflac --show-tag=LYRICS "${1}" | sed s/LYRICS=//ig)"
 
     # Determine the MIME type of the embedded picture
 	local ARTFILE=".arttmp.${NF}"
@@ -110,6 +111,7 @@ function _convert_flac2alac {
     -metadata disc="$DISCNUMBER/$DISCTOTAL" \
     -metadata composer="$COMPOSER" \
     -metadata comment="$DESCRIPTION" \
+    -metadata lyrics="${LYRICS}" \
     ${ARTFILE:+-disposition:v:0 attached_pic} \
     -c:a alac ${ARTFILE:+-c:v copy} \
     "${D}/.tmp.${NF}"
