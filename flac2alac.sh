@@ -96,6 +96,16 @@ function _convert_flac2alac {
 		echo "ARTFILE : $ARTFILE"
 		echo "Arttext: $ARTEXT"
 
+        # Resize ARTFILE to 500x500 pixel , convert to jpg
+        # and save it as non progressive jpg, to be compatible with RockBox
+        if [ "${ARTEXT}" = "png" ]
+        then
+            convert "${D}/${ARTFILE}" -resize 500x500 -interlace none "${D}/${ARTFILE}.jpg"
+            ARTFILE="${ARTFILE}.jpg"
+        else
+            convert "${D}/${ARTFILE}" -resize 500x500 -interlace none "${D}/${ARTFILE}"
+        fi
+
 	fi
 
     ffmpeg -i "${D}/.flacdecode.${NF}.wav" \
