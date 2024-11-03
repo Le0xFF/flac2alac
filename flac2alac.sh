@@ -141,6 +141,12 @@ DELETE_WHEN_DONE=0
 for filename in "$@"; do
     if [ "$filename" = "-d" ]; then
         DELETE_WHEN_DONE=1
+    elif [ -d "$filename" ]; do
+        IFS=$'\n'
+        for one_filename in $(find "$filename" -type f -iname "*.flac"); do
+            unset IFS
+            _convert_flac2alac "$one_filename"
+        done
     elif [ -f "$filename" ]; then
         _convert_flac2alac "$filename"
     fi
