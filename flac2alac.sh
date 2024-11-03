@@ -133,16 +133,6 @@ function _convert_flac2alac {
         rm "$1"
         echo "Original FLAC file deleted."
     fi
-
-    # # Finalize: rename temporary ALAC file to final name
-    # mv "${D}/.tmp.${NF}" "${D}/${NF}"
-    # echo "Successfully converted $1 to ${D}/${NF}"
-    
-    # # Option to delete original FLAC file after successful conversion
-    # if [ $DELETE_WHEN_DONE -eq 1 ]; then
-    #     rm "$1"
-    #     echo "Original FLAC file deleted."
-    # fi
 }
 
 # Main script logic: parse arguments and call conversion function
